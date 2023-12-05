@@ -43,7 +43,7 @@ def render_Scene():
     # Set current color to red
     glColor3f(0.0,0.0,1.0)
 
-    glPointSize(20.0)
+    glPointSize(15.0)
     
     # Draw a red square
     glBegin(GL_POINTS)
