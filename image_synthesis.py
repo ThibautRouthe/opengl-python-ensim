@@ -19,7 +19,7 @@ def display():
     glClear(GL_COLOR_BUFFER_BIT)
 
     # Render scene
-    drawConnectedLines()
+    drawLoopLines()
 
     # Swap buffers
     glutSwapBuffers()
@@ -91,14 +91,23 @@ def drawLines(lines):
             glVertex2f(l[0],l[1])
         glEnd()
         
-def drawConnectedLines(lines):
+def drawConnectedLines():
+    lines = poly()
     glLineWidth(5.0)
     glColor3f(random.random(),random.random(),random.random())
+    glBegin(GL_LINE_STRIP)
     for line in lines:
-        glBegin(GL_LINE_STRIP)
-        for l in line :
-            glVertex2f(l[0],l[1])
-        glEnd()
+        glVertex2f(line[0],line[1])
+    glEnd()
+    
+def drawLoopLines():
+    lines = poly()
+    glLineWidth(5.0)
+    glColor3f(random.random(),random.random(),random.random())
+    glBegin(GL_LINE_LOOP)
+    for line in lines:
+        glVertex2f(line[0],line[1])
+    glEnd()
 
 # Initialize GLUT
 glutInit()
