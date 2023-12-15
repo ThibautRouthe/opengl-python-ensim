@@ -19,7 +19,7 @@ def display():
     glClear(GL_COLOR_BUFFER_BIT)
 
     # Render scene
-    drawLoopLines()
+    drawCircles()
 
     # Swap buffers
     glutSwapBuffers()
@@ -38,7 +38,8 @@ def point():
 
 def circle():
     p = []
-    radiants = np.linspace(0, 2 * np.pi, 32)
+    radiants = np.linspace(0, 2 * np.pi, 33)
+    radiants = radiants[:-1]
     for radiant in radiants :
         p.append([math.cos(radiant), math.sin(radiant)])
     return p
